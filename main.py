@@ -17,7 +17,7 @@ load_dotenv()
 
 
 tools = [TavilySearch()]
-llm = ChatOpenAI(model='gpt-4o-mini')
+llm = ChatOpenAI(model='gpt-4o-mini', temperature=0)
 react_prompt = hub.pull("hwchase17/react")
 output_parser = PydanticOutputParser(pydantic_object=AgentResponse)
 react_prompt_with_format_instructions = PromptTemplate(
@@ -27,7 +27,7 @@ react_prompt_with_format_instructions = PromptTemplate(
 agent = create_react_agent(
     llm=llm,
     tools=tools,
-    prompt=react_prompt,
+    prompt=react_prompt_with_format_instructions,
 ) 
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 chain = agent_executor
