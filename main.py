@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-import os
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 
@@ -35,8 +34,8 @@ def main():
 
     llm = ChatOpenAI(model='gpt-4o-mini', temperature=0)
 
-    # LCEL
-    chain = summary_prompt_template | llm # creates a runnable
+    # LCEL (creates a runnable)
+    chain = summary_prompt_template | llm
     
     response = chain.invoke(input={"information": information})
     
