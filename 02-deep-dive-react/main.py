@@ -72,34 +72,29 @@ def main():
 
     query = "What is the length in characters of the text DOG?"
     intermediate_steps = []
-    
-    agent_step: Union[AgentAction, AgentFinish] = agent.invoke(
-        {
-            "input": query,
-            "agent_scratchpad": intermediate_steps
-        }
-    )
-    print(f"agent_step_1: {agent_step}")
 
-    if isinstance(agent_step, AgentAction):
-        tool_name = agent_step.tool
-        tool_to_use = get_tool_by_name(tools, tool_name)
-        tool_input = agent_step.tool_input
+    agent_step = ""
 
-        observation = tool_to_use(str(tool_input))
-        intermediate_steps.append((agent_step, str(observation)))
-        # print(intermediate_steps)
-    
-    agent_step: Union[AgentAction, AgentFinish] = agent.invoke(
-        {
-            "input": query,
-            "agent_scratchpad": intermediate_steps
-        }
-    )
-    print(f"agent_step_2: {agent_step}")
-
-    if isinstance(agent_step, AgentFinish()):
+    while not isinstance(agent_step, AgentFinish):
+        agent_step: Union[AgentAction, AgentFinish] = agent.invoke(
+            {
+                "input": query,
+                "agent_scratchpad": intermediate_steps
+            }
+        )
+        print(f"\n\nagent_step: {agent_step}")
         
+        if isinstance(agent_step, AgentAction):
+            tool_name = agent_step.tool
+            tool_to_use = get_tool_by_name(tools, tool_name)
+            tool_input = agent_step.tool_input
+
+            observation = tool_to_use(str(tool_input))
+            intermediate_steps.append((agent_step, str(observation)))
+
+    if isinstance(agent_step, AgentFinish):
+        print(f"\n\nanswer: {agent_step.return_values['output']}")
+
 
 
 if __name__ == "__main__":
