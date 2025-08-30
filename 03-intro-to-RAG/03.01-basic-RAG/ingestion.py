@@ -14,7 +14,7 @@ def main():
     print("Hello from Ingestion!")
 
     print("Loading...")
-    loader = TextLoader("/Users/maakhan/Desktop/langchain-course/vector-medium-blog-1.txt")
+    loader = TextLoader("/Users/maakhan/Desktop/langchain-course/03-intro-to-RAG/03.01-basic-RAG/vector-medium-blog-1.txt")
     document = loader.load()
 
     print("Splitting...")
