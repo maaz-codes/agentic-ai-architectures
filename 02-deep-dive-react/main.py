@@ -21,7 +21,6 @@ def get_text_length(text: str) -> int:
     text = text.strip("'\n").strip('"')
     return len(text)
 
-
 def get_tool_by_name(tools: List[Tool], tool_name: str) -> Tool:
     for tool in tools:
         if tool.name == tool_name:
@@ -95,6 +94,7 @@ def main():
 
     if isinstance(agent_step, AgentFinish):
         print(f"\n\nanswer: {agent_step.return_values['output']}")
+
 
 
 if __name__ == "__main__":
