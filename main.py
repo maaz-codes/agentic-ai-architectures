@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from dotenv import load_dotenv
 from langchain import hub
 from langchain.agents import AgentExecutor
@@ -7,9 +8,13 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnableLambda
 from langchain_core.output_parsers.pydantic import PydanticOutputParser
 from langchain_experimental.tools.python.tool import PythonREPLTool
+from langchain_experimental.agents.agent_toolkits.csv.base import create_csv_agent
 
 
 load_dotenv()
+
+
+csv_file = 'seinfield.csv'
 
 
 def main():
@@ -30,13 +35,22 @@ def main():
     prompt = base_prompt.partial(instructions=instructions)
     llm = ChatOpenAI(model='gpt-4o-mini', temperature=0)
 
-    agent = create_react_agent(
+    code_agent = create_react_agent(
         prompt=prompt,
         llm=llm,
         tools=tools
     )
 
-    agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+    # csv_agent = create_csv_agent(
+    #     llm=llm,
+    #     path=csv_file,
+    #     verbose=True,
+    #     allow_dangerous_code=True,
+    # )
+
+    # csv_agent.run("Which writer wrote the most episodes in file seinfield.csv")
+
+    agent_executor = AgentExecutor(agent=code_agent, tools=tools, verbose=True)
 
     agent_executor.invoke(
         input={
@@ -46,10 +60,6 @@ def main():
             """
         }
     )
-
-
-
-
 
 
 if __name__ == "__main__":
