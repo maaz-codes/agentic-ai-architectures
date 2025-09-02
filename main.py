@@ -1,66 +1,67 @@
-from tabnanny import verbose
+from typing import Any
 from dotenv import load_dotenv
-from langchain import hub
-from langchain.agents import AgentExecutor
 from langchain.agents.react.agent import create_react_agent
-from langchain_openai import ChatOpenAI
-from langchain_core.prompts import PromptTemplate
-from langchain_core.runnables import RunnableLambda
-from langchain_core.output_parsers.pydantic import PydanticOutputParser
-from langchain_experimental.tools.python.tool import PythonREPLTool
 from langchain_experimental.agents.agent_toolkits.csv.base import create_csv_agent
+from langchain_core.tools import Tool
+from langchain import hub
+from langchain_openai import ChatOpenAI
+from langchain.agents import AgentExecutor
+from agents import code_agent, csv_agent
+from lc_logger import MyLogger
 
 
 load_dotenv()
 
-
-csv_file = 'seinfield.csv'
+def code_agent_wrapper(prompt: str) -> dict[str, Any]:
+    return code_agent.invoke(input={"input": prompt})
 
 
 def main():
     print("Hello from Code Interpreter!")
 
+
+    tools = [
+        Tool(
+            name="Python Agent",
+            func=code_agent_wrapper,
+            description="""
+                useful when you need to transform natural language to python and execute the python code,
+                returning the results of the code execution.
+                DOES NOT ACCEPT CODE AS INPUT.
+            """
+        ),
+        Tool(
+            name="CSV Agent",
+            func=csv_agent.invoke,
+            description="""
+                useful when you need to answer question over seinfield.csv file,
+                takes an input the entire question and returns the answer after running pandas calculations.
+            """
+        ),
+    ]
+
     base_prompt = hub.pull('langchain-ai/react-agent-template')
-    instructions = """
-        You are an agent designed to write and execute python code to answer questions.
-        You have access to a python REPL, which you can use to execute python code.
-        If you get an error, debug your code and try again.
-        Only use the output of your code to answer the question.
-        You might know the answer without running any code, but you should still run the code to get the answer.
-        If it does not seem like you can write code to answer the question, just return "I don't know" as the answer.
-    """
-    tools = [PythonREPLTool()]
-    tool_names = [tool.name for tool in tools]
+    prompt = base_prompt.partial(instructions="")
+    llm = ChatOpenAI(model='gpt-4o', temperature=0)
 
-    prompt = base_prompt.partial(instructions=instructions)
-    llm = ChatOpenAI(model='gpt-4o-mini', temperature=0)
+    my_logger = MyLogger()
 
-    code_agent = create_react_agent(
+    create_router_agent = create_react_agent(
         prompt=prompt,
         llm=llm,
-        tools=tools
+        tools=tools,
     )
 
-    # csv_agent = create_csv_agent(
-    #     llm=llm,
-    #     path=csv_file,
-    #     verbose=True,
-    #     allow_dangerous_code=True,
-    # )
-
-    # csv_agent.run("Which writer wrote the most episodes in file seinfield.csv")
-
-    agent_executor = AgentExecutor(agent=code_agent, tools=tools, verbose=True)
-
-    agent_executor.invoke(
-        input={
-            "input": """
-                Generate and save in current working directory 1 QRcode that points to www.udemy.com.
-                You have the qrcode package already installed.
-            """
-        }
+    router_agent = AgentExecutor(
+        agent=create_router_agent, 
+        tools=tools, 
+        verbose=True,
+        callbacks=[my_logger]
     )
 
+    # res = router_agent.invoke(input={"input": "Which season has the most episodes?"})
+    res = router_agent.invoke(input={"input": "Generate a qr code for this link: www.python.langchain.com"})
+    print(res)
 
 if __name__ == "__main__":
     main()
