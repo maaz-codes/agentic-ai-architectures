@@ -1,0 +1,204 @@
+{
+  "success": true,
+  "credits_left": 99,
+  "rate_limit_left": 99,
+  "daily_rate_limit_left": 99,
+  "minute_rate_limit_left": 499,
+  "next_minute_rate_limit_reset": "2025-09-05T13:29:25.000Z",
+  "person": {
+    "publicIdentifier": "maaz-khan-685982369",
+    "linkedInIdentifier": "ACoAAFtyVUUBmnzJQI5CP9yYlPCMRuLQHCWiOdE",
+    "memberIdentifier": "1534219589",
+    "linkedInUrl": "https://www.linkedin.com/in/maaz-khan-685982369",
+    "firstName": "Maaz",
+    "lastName": "Khan",
+    "headline": "Full Stack Engineer | AI Agents and Automation | Student at 42 Abu Dhabi",
+    "location": {
+      "city": "Abu Dhabi",
+      "state": "Abu Dhabi Emirate",
+      "country": "United Arab Emirates",
+      "countryCode": "AE"
+    },
+    "summary": null,
+    "photoUrl": "https://media.licdn.com/dms/image/v2/D4E03AQGowe6GrAdKgQ/profile-displayphoto-shrink_800_800/B4EZdVhTEvHIAk-/0/1749486483394?e=1759968000&v=beta&t=3FDpJWNx1s8eidIuf1sOhazYrsFpCXNjdNUsSSKqm-c",
+    "backgroundUrl": null,
+    "openToWork": false,
+    "premium": false,
+    "showVerificationBadge": false,
+    "creationDate": {
+      "month": 6,
+      "year": 2025
+    },
+    "followerCount": 243,
+    "positions": {
+      "positionsCount": 4,
+      "positionHistory": [
+        {
+          "title": "Full-Stack AI Web Developer",
+          "companyName": "42 Abu Dhabi",
+          "companyLocation": "United Arab Emirates",
+          "description": "- Currently building a second full-stack platform to orchestrate LLM-powered agents.\n- Developed and maintained a Next.js + Supabase web app with user authentication, real-time data sync, serverless functions, and Edge middleware",
+          "startEndDate": {
+            "start": {
+              "month": 5,
+              "year": 2025
+            },
+            "end": null
+          },
+          "contractType": "Full-time",
+          "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQHUEzqAVKjxsw/company-logo_400_400/company-logo_400_400/0/1630671020468/42abudhabi_logo?e=1759968000&v=beta&t=DjXABrzfhC0KftbShKflvLMqu9WgsaYG98kAo146YFU",
+          "linkedInUrl": "https://www.linkedin.com/school/42abudhabi/",
+          "linkedInId": "67565771"
+        },
+        {
+          "title": "AI & Computer Vision Engineer",
+          "companyName": "42 Abu Dhabi",
+          "companyLocation": "United Arab Emirates",
+          "description": "- Built and integrated Agentic AIs (AI agents) using Crew AI to automate data ingestion and decision-making workflows\n- Architected and deployed 2 large-scale face-recognition pipelines leveraging one-shot learning to identify individuals across varying conditions in a 45GB dataset.",
+          "startEndDate": {
+            "start": {
+              "month": 2,
+              "year": 2025
+            },
+            "end": {
+              "month": 5,
+              "year": 2025
+            }
+          },
+          "contractType": "Full-time",
+          "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQHUEzqAVKjxsw/company-logo_400_400/company-logo_400_400/0/1630671020468/42abudhabi_logo?e=1759968000&v=beta&t=DjXABrzfhC0KftbShKflvLMqu9WgsaYG98kAo146YFU",
+          "linkedInUrl": "https://www.linkedin.com/school/42abudhabi/",
+          "linkedInId": "67565771"
+        },
+        {
+          "title": "Systems Software Engineer",
+          "companyName": "42 Abu Dhabi",
+          "companyLocation": "United Arab Emirates",
+          "description": "- Built a Unix-style shell in C, supporting built-ins, pipelines & I/O redirection\n- Engineered a real-time ray-casting engine rendering textured 3D scenes",
+          "startEndDate": {
+            "start": {
+              "month": 9,
+              "year": 2024
+            },
+            "end": {
+              "month": 1,
+              "year": 2025
+            }
+          },
+          "contractType": "Full-time",
+          "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQHUEzqAVKjxsw/company-logo_400_400/company-logo_400_400/0/1630671020468/42abudhabi_logo?e=1759968000&v=beta&t=DjXABrzfhC0KftbShKflvLMqu9WgsaYG98kAo146YFU",
+          "linkedInUrl": "https://www.linkedin.com/school/42abudhabi/",
+          "linkedInId": "67565771"
+        },
+        {
+          "title": "Algorithms & Concurrency Engineer",
+          "companyName": "42 Abu Dhabi",
+          "companyLocation": "United Arab Emirates",
+          "description": "- Optimized and created sorting algorithms, reducing stack operations by 30%\n- Implemented Dining Philosophers Problem using POSIX threads/processes, ensuring deadlock avoidance",
+          "startEndDate": {
+            "start": {
+              "month": 6,
+              "year": 2024
+            },
+            "end": {
+              "month": 8,
+              "year": 2024
+            }
+          },
+          "contractType": "Full-time",
+          "companyLogo": "https://media.licdn.com/dms/image/v2/C560BAQHUEzqAVKjxsw/company-logo_400_400/company-logo_400_400/0/1630671020468/42abudhabi_logo?e=1759968000&v=beta&t=DjXABrzfhC0KftbShKflvLMqu9WgsaYG98kAo146YFU",
+          "linkedInUrl": "https://www.linkedin.com/school/42abudhabi/",
+          "linkedInId": "67565771"
+        }
+      ]
+    },
+    "schools": {
+      "educationsCount": 1,
+      "educationHistory": [
+        {
+          "degreeName": "Computer Science",
+          "fieldOfStudy": "Information Technology",
+          "description": null,
+          "linkedInUrl": "https://www.linkedin.com/school/42abudhabi/",
+          "schoolLogo": "https://media.licdn.com/dms/image/v2/C560BAQHUEzqAVKjxsw/company-logo_400_400/company-logo_400_400/0/1630671020468/42abudhabi_logo?e=1759968000&v=beta&t=DjXABrzfhC0KftbShKflvLMqu9WgsaYG98kAo146YFU",
+          "schoolName": "42 Abu Dhabi",
+          "startEndDate": {
+            "start": {
+              "month": 1,
+              "year": 2024
+            },
+            "end": {
+              "month": 12,
+              "year": 2026
+            }
+          }
+        }
+      ]
+    },
+    "skills": [
+      "Multi-agent Systems",
+      "CI/CD",
+      "API Design",
+      "PyTorch",
+      "Computer Vision",
+      "Crew AI",
+      "Data Processing",
+      "Unix shell internals",
+      "Process control",
+      "Graphics/math Fundamentals",
+      "Ray casting",
+      "Complexity Analysis",
+      "Performance Tuning",
+      "Process synchronization",
+      "Data Structures & Algorithms",
+      "POSIX Threads",
+      "Dara Structures and Algorithms",
+      "Artificial Intelligence (AI)",
+      "Machine Learning",
+      "Web Development"
+    ],
+    "languages": [],
+    "languagesWithProficiency": [],
+    "recommendations": {
+      "recommendationsCount": 0
+    },
+    "certifications": {
+      "certificationsCount": 0
+    },
+    "testScores": {
+      "testScoresCount": 0
+    },
+    "volunteeringExperiences": {
+      "volunteeringExperiencesCount": 0
+    }
+  },
+  "company": {
+    "linkedInId": "67565771",
+    "name": "42 Abu Dhabi",
+    "universalName": "42abudhabi",
+    "linkedInUrl": "https://www.linkedin.com/company/67565771",
+    "employeeCount": 84,
+    "followerCount": 11081,
+    "employeeCountRange": {
+      "start": 11,
+      "end": 50
+    },
+    "websiteUrl": "https://42abudhabi.ae/",
+    "tagline": "42 Abu Dhabi, the 100% coding school. Zero Tuition, Zero Teachers, Zero Classes & Zero coding experience required.",
+    "description": "42 Abu Dhabi, the 100% coding school. Zero Tuition, Zero Teachers, Zero Classes & Zero coding experience required. Apply Today",
+    "industry": "Higher Education",
+    "phone": null,
+    "specialities": [],
+    "headquarter": {
+      "city": "Abu Dhabi",
+      "country": "AE",
+      "postalCode": null,
+      "geographicArea": null,
+      "street1": null,
+      "street2": null
+    },
+    "logo": "https://media.licdn.com/dms/image/v2/C560BAQHUEzqAVKjxsw/company-logo_400_400/company-logo_400_400/0/1630671020468/42abudhabi_logo?e=1759363200&v=beta&t=C26bB-x5i4CjGUFQiZOZvzw8_gt4cAt0uk_wzwE1FYo",
+    "fundingData": null,
+    "backgroundUrl": "https://media.licdn.com/dms/image/v2/C561BAQHxyBgEMCt0Eg/company-background_10000/company-background_10000/0/1599032411475/42abudhabi_cover?e=1756789200&v=beta&t=WR43AKuTwZvQhsQnArKBoFCn_GvOku0LPtDxUShKDlY"
+  }
+}
