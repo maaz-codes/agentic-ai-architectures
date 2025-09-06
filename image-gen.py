@@ -2,6 +2,7 @@ import base64
 import io
 
 from PIL import Image
+from typing import List
 from langchain_core.messages import AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
@@ -33,7 +34,7 @@ def save_image_to_local(response: AIMessage):
     image.save('van-gogh-v2.png')
 
 
-def generate_image(prompt: str, image: str = None, model: ChatGoogleGenerativeAI = llm) -> str:
+def generate_image(prompt: str, images: List[str] = None, model: ChatGoogleGenerativeAI = llm) -> str:
     print("Generating Image...")
 
     content = [{
@@ -41,13 +42,14 @@ def generate_image(prompt: str, image: str = None, model: ChatGoogleGenerativeAI
         "text": prompt,
     }]
 
-    if image:
-        with open(image, "rb") as image_file:
-            encoded_image = base64.b64encode(image_file.read()).decode("utf-8")
-        content.append({
-            "type": "image_url",
-            "image_url": f"data:image/png;base64,{encoded_image}",
-        })
+    if images:
+        for image in images:
+            with open(image, "rb") as image_file:
+                encoded_image = base64.b64encode(image_file.read()).decode("utf-8")
+            content.append({
+                "type": "image_url",
+                "image_url": f"data:image/png;base64,{encoded_image}",
+            })
 
     message = {
         "role": "user",
@@ -68,10 +70,11 @@ def generate_image(prompt: str, image: str = None, model: ChatGoogleGenerativeAI
 def main():
     print("Hello from Nano-Banana!")
 
-    image_path = "/Users/maakhan/Desktop/langchain-course/image_local.png"
+    image1_path = "/Users/maakhan/Desktop/langchain-course/image_local.png"
+    image2_path = "/Users/maakhan/Desktop/langchain-course/starry_night.jpg"
     response = generate_image(
-        prompt="Create this image into a Vincent van Gogh painting",
-        image=image_path,
+        prompt="Copy style from second image and apply to first one. Also provide a textual description of what you did as a response other than the image itself.",
+        images=[image1_path, image2_path],
         model=nano_banana,
     )
     print(response)
