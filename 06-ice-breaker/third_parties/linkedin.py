@@ -13,7 +13,7 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
     Manualy scrape the information from the LinkedIn profile
     """
 
-    if mock:
+    if mock or not ('linkedin' in linkedin_profile_url):
         linkedin_profile_url = "https://gist.githubusercontent.com/maaz-codes/458d28f9310e75860043ae0870767579/raw/2840edb5f365b3748a5285083143a25758853c70/maaz-khan-scrapin.json"
         response = requests.get(
             url=linkedin_profile_url, 
