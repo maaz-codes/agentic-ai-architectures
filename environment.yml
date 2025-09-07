@@ -1,0 +1,17 @@
+name: designing-agent
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - tesseract
+  - poppler
+  - libmagic
+  - streamlit
+  - python-dotenv
+  - langchain
+  - langchain-google-genai
+  - langchain-chroma
+  - langchain-openai
+  - langchain-community
+  - unstructured
+prefix: /Users/maakhan/miniforge3/envs/designing-agent

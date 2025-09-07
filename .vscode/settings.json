@@ -1,5 +1,6 @@
 {
-    "python.defaultInterpreterPath": "./.venv/bin/python",
+    // "python.defaultInterpreterPath": "./.venv/bin/python",
+    "python.defaultInterpreterPath": "/Users/maakhan/miniforge3/envs/designing-agent/bin/python",
     "python.terminal.activateEnvironment": true,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,

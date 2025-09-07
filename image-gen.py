@@ -7,7 +7,6 @@ from langchain_core.messages import AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 
@@ -70,11 +69,22 @@ def generate_image(prompt: str, images: List[str] = None, model: ChatGoogleGener
 def main():
     print("Hello from Nano-Banana!")
 
-    image1_path = "/Users/maakhan/Desktop/langchain-course/image_local.png"
-    image2_path = "/Users/maakhan/Desktop/langchain-course/starry_night.jpg"
+    image1_path = "/Users/maakhan/Desktop/langchain-course/images/image_local.png"
+    image2_path = "/Users/maakhan/Desktop/langchain-course/images/starry_night.jpg"
     response = generate_image(
-        prompt="Copy style from second image and apply to first one. Also provide a textual description of what you did as a response other than the image itself.",
-        images=[image1_path, image2_path],
+        prompt="""
+        A surreal, hyper-realistic scene made entirely from banana peels. A small cat, crafted from layered banana peels, stands proudly on top of a massive medieval castle, also constructed entirely from banana peels — the walls, towers, battlements, and gates are all formed from textured golden-yellow and brown-spotted banana peels. The cat wears a banana peel hat, folded like a whimsical cap. The setting is winter: the castle is surrounded by a snowy landscape, but even the snow has faint banana-peel textures, giving it a surreal organic look. Icicles dangle from the castle edges, glistening with frosty highlights over the peels. The sky above is a cold, pale gray with soft winter light casting subtle shadows, enhancing the textures of the peels. The scene should feel both whimsical and majestic, with extreme detail showing the fibrous banana peel surfaces, folds, and natural imperfections.
+        Style/Details:
+
+        Ultra-detailed, hyper-realistic textures.
+
+        Macro-level details of banana peel veins and spots.
+
+        Whimsical yet majestic atmosphere.
+
+        Wide cinematic view, capturing the huge scale of the banana peel castle compared to the tiny cat.
+        """,
+        images=[],
         model=nano_banana,
     )
     print(response)
