@@ -44,7 +44,6 @@ text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
 )
 
 doc_splits = text_splitter.split_documents(docs_list)
-
 docs_cleaned = [
     Document(page_content=d.page_content, metadata=clean_metadata(d))
     for d in doc_splits
@@ -61,6 +60,12 @@ vectorstore = PineconeVectorStore(
     embedding=embeddings,
 )
 
-index_docs(docs_cleaned)
-
 retriver = vectorstore.as_retriever()
+
+
+def main():
+    index_docs(docs_cleaned)
+
+
+if __name__ == "__main__":
+    main()

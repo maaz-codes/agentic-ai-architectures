@@ -1,0 +1,17 @@
+[project]
+name = "langchain-course"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.5",
+    "langchain>=0.3.27",
+    "langchain-community>=0.3.29",
+    "langchain-openai>=0.3.33",
+    "langchain-pinecone>=0.2.12",
+    "langchain-tavily>=0.2.11",
+    "langchainhub>=0.1.21",
+    "langgraph>=0.6.7",
+    "python-dotenv>=1.1.1",
+]
