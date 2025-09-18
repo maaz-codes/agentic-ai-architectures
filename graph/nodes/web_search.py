@@ -10,7 +10,7 @@ load_dotenv()
 
 
 def web_search(state: GraphState) -> Dict:
-    print("---WEB SEARCHING---")
+    print("---WEB SEARCH---")
 
     web_search_tool = TavilySearch(max_results=3)
     question = state["question"]
@@ -27,8 +27,6 @@ def web_search(state: GraphState) -> Dict:
     else:
         documents = [web_results]
     return {"documents": documents}
-
-
 
 
 if __name__ == "__main__":
