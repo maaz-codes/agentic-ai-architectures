@@ -1,4 +1,4 @@
-from typing TypedDict, List
+from typing import TypedDict, List
 from graph.state import GraphState
 from graph.chains.generation import generation_chain
 

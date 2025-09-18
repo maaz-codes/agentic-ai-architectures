@@ -5,5 +5,5 @@ from graph.nodes.web_search import web_search
 
 __all__ = ["generate", "grade_documents", "retrieve", "web_search"]
 
-__version__ = 1.0.0
+__version__ = 1.0
 __author__ = "Maakhan"
