@@ -1,10 +1,11 @@
 from dotenv import load_dotenv
-from langgraph.graph import END, StateGraph
+from langgraph.graph import START, END, StateGraph
 from regex import P
 from graph.state import GraphState
 from graph.consts import *
 from graph.nodes import *
 from graph.chains.hallucination_grader import Hallucination_grade, hallucination_grader
+from graph.chains.question_router import question_router, QuestionRouter
 
 
 load_dotenv()
@@ -41,7 +42,18 @@ def grade_generation(state: GraphState):
     else:
         print("--DECISION: READY FOR FINAL ANSWER--")
         return "useful"
+    
 
+def query_router(state: GraphState):
+    print("---ROUTER DECIDING---")
+    question = state["question"]
+    datasource: QuestionRouter = question_router.invoke({"question": question})
+
+    if datasource == "websearch":
+        print("--DECIDED: WEB SEARCH--")
+        return WEB_SEARCH
+    print("--DECIDED: RETRIEVE--")
+    return RETRIEVE
 
 
 builder = StateGraph(GraphState)
@@ -51,7 +63,12 @@ builder.add_node(RETRIEVE, retrieve)
 builder.add_node(WEB_SEARCH, web_search)
 builder.add_node(GRADE_DOCUMENTS, grade_documents)
 
-builder.set_entry_point(RETRIEVE)
+# builder.set_entry_point(RETRIEVE)
+builder.add_conditional_edges(
+    START, 
+    query_router, 
+    {RETRIEVE:RETRIEVE, WEB_SEARCH:WEB_SEARCH}
+)
 builder.add_edge(RETRIEVE, GRADE_DOCUMENTS)
 builder.add_conditional_edges(
     GRADE_DOCUMENTS, 
