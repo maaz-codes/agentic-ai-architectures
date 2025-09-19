@@ -1,7 +1,8 @@
 from graph.graph import graph
 
+
 def main():
-    print("Hello from CRAG!")
+    print("Hello from SRAG!")
 
     question = "What is the difference between langchain and langgraph?"
     result = graph.invoke(input=
