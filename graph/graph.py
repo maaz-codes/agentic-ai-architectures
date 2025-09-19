@@ -8,8 +8,11 @@ load_dotenv()
 
 
 def should_web_search(state: GraphState):
+    print("---DECISION NODE---")
     if state["web_search"]:
+        print("-DECIDED: WEB_SEARCH-")
         return WEB_SEARCH
+    print("-DECIDED: GENERATE-")
     return GENERATE
 
 builder = StateGraph(GraphState)
