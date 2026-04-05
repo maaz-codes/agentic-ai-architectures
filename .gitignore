@@ -1,0 +1,16 @@
+.env
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+faiss_index_react/
+dbv1/
+dbv2/
+van-gogh-v2.png
+maakhan-van-gogh-v1.png
