@@ -67,4 +67,4 @@ See [`.env.example`](.env.example) for all required API keys.
 
 ## About
 
-Built by [Maaz Khan](https://www.linkedin.com/in/maaz-khan-dev/). I'm an AI Agents Engineer specializing in agentic systems, RAG pipelines, and voice AI. Currently seeking remote opportunities.
+Built by [Maaz Khan](https://www.linkedin.com/in/maaz-khan-codes/). I'm an AI Agents Engineer specializing in agentic systems, RAG pipelines, and voice AI. Currently seeking remote opportunities.
